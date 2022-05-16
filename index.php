@@ -7,12 +7,12 @@ $name = '';
 $guessNum = '';
 
 if(count($_POST)>0){
-    //redirect to game.php if user filled out name and guessed a number
+    //redirect to get_num_db.php if user filled out name and guessed a number
     if(($_POST['name'] != "") && ($_POST['guessNum'] != "")){
         header("Location: get_num_db.php");
         //Insert number into database
         $randNum = rand(1,100);  
-        $query = "INSERT INTO Game(guess) Values($randNum)";
+        $query = "INSERT INTO game(guess) Values($randNum)";
         $conn->query($query);
         $conn->close();
     }
